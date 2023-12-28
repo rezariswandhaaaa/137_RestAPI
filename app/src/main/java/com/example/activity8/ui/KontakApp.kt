@@ -21,12 +21,14 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.activity8.R
+import com.example.activity8.navigation.PengelolaHalaman
 import com.example.activity8.ui.home.screen.HomeScreen
 import com.example.activity8.ui.home.viewmodel.HomeViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun KontakApp(
+
 ){
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     Scaffold (
@@ -37,7 +39,7 @@ fun KontakApp(
                 .fillMaxSize()
                 .padding(it)
         ){
-
+            PengelolaHalaman()
         }
     }
 }
@@ -50,7 +52,7 @@ fun TopAppBarKontak(
     title: String,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit = {},
-    scrollBehavior: TopAppBarScrollBehavior,
+    scrollBehavior: TopAppBarScrollBehavior? = null,
     modifier: Modifier = Modifier
 ){
     CenterAlignedTopAppBar(

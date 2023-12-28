@@ -26,7 +26,7 @@ interface KontakService {
     @PUT("kontak/{id}")
     suspend fun updateKontak(@Path("id") id: Int,@Body kontak: Kontak)
 
-    @DELETE
+    @DELETE("kontak/{id}")
     suspend fun deleteKontak(@Path("id") id: Int): Response<Void>
 
 }
