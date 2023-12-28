@@ -97,7 +97,9 @@ fun OnError(
 @Composable
 fun KontakLayout(
     kontak: List<Kontak>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onDetailClick: (Kontak) -> Unit,
+    onDeleteClick: (Kontak) -> Unit = {}
 ){
     LazyColumn(
         modifier = modifier,
@@ -105,9 +107,15 @@ fun KontakLayout(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ){
         items(kontak) { kontak ->
-            KontakCard(kontak = kontak, modifier = Modifier
+            KontakCard(
+                kontak = kontak,
+                modifier = Modifier
                 .fillMaxWidth()
-                .clickable {})
+                .clickable {onDetailClick(kontak)},
+                onDeleteClick = {
+                    onDeleteClick(kontak)
+                }
+            )
         }
     }
 }
