@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.activity8.KontakAplikation
 import com.example.activity8.ui.home.viewmodel.HomeViewModel
+import com.example.activity8.ui.home.viewmodel.InsertViewModel
 
 
 object PenyediaViewModel {
@@ -13,6 +14,10 @@ object PenyediaViewModel {
 
         initializer {
             HomeViewModel(aplikasiKontak().container.kontakRepository)
+        }
+
+        initializer {
+            InsertViewModel(aplikasiKontak().container.kontakRepository)
         }
     }
 }
